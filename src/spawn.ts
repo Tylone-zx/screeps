@@ -28,7 +28,7 @@ const bornCreepSchedule: CreepSchedule[] = [
 	{ role: ROLE_HAVESTER, limit: 2, bodyGenerator: () => RoleBodyParts[ROLE_HAVESTER] },
 	{ role: ROLE_UPGRADER, limit: 1, bodyGenerator: () => RoleBodyParts[ROLE_UPGRADER] },
 	{ role: ROLE_MISCER, limit: 1, bodyGenerator: () => RoleBodyParts[ROLE_MISCER] },
-	{ role: ROLE_BUILDER, limit: 1, bodyGenerator: () => RoleBodyParts[ROLE_BUILDER] },
+	{ role: ROLE_BUILDER, limit: 2, bodyGenerator: () => RoleBodyParts[ROLE_BUILDER] },
 	// { role: ROLE_MOVER, limit: 2, bodyGenerator: () => RoleBodyParts[ROLE_MOVER] },
 ]
 
