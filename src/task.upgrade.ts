@@ -27,7 +27,7 @@ export const taskUpgrade = {
       creep.upgradeController(creep.room.controller as StructureController);
       creep.moveTo(creep.room.controller as StructureController, { visualizePathStyle: { stroke: "#ffffff" } });
     } else {
-      return taskUpgrade.doHarvest(creep);
+      return taskWithdraw.run(creep);
     }
     return true;
   },
