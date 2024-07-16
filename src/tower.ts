@@ -9,14 +9,26 @@ export const tower = {
       }
     });
     if (!enemies) {
-      let walls = tower.pos.findClosestByPath(FIND_STRUCTURES, {
+      let p0Walls = tower.pos.findClosestByPath(FIND_STRUCTURES, {
         filter: wall => {
-          return wall.structureType == STRUCTURE_WALL &&
-          wall.room.name == tower.room.name &&
-          wall.hits < Math.ceil(wall.hitsMax / 2);
+          return (
+            wall.structureType == STRUCTURE_WALL &&
+            wall.room.name == tower.room.name &&
+            wall.hits < Math.ceil(wall.hitsMax / 100)
+          );
         }
       });
-      if (walls){
+      let p1Walls = tower.pos.findClosestByPath(FIND_STRUCTURES, {
+        filter: wall => {
+          return (
+            wall.structureType == STRUCTURE_WALL &&
+            wall.room.name == tower.room.name &&
+            wall.hits < Math.ceil(wall.hitsMax / 10)
+          );
+        }
+      });
+      let walls = p0Walls ? p0Walls : p1Walls;
+      if (walls && tower.store.getUsedCapacity(RESOURCE_ENERGY) > tower.store.getCapacity(RESOURCE_ENERGY) * 0.5) {
         console.log(`repair ${walls} walls`);
         tower.repair(walls);
       }
